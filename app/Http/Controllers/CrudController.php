@@ -28,4 +28,15 @@ class CrudController extends Controller
             return redirect()->back()->with('error','Data was not inserted');
         }
     }
+
+    public function delete(Request $request){
+        $id=$request->criteria;
+        if(DB::table("users")->where('id','=',$id)->delete()){
+            return redirect()->back()->with('success','Data Deleted SuccessFully');
+        }else{
+            return redirect()->back()->with('error','There was some problem on deleting data');
+        }
+
+
+    }
 }
