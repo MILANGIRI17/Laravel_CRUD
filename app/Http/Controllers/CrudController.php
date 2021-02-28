@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CrudController extends Controller
@@ -16,5 +16,15 @@ class CrudController extends Controller
             'email'=>'required | email |unique:Users,email',
             'phone'=>'required | min:10'
         ]);
+        $data['name']=$request->name;
+        $data['email']=$request->email;
+        $data['phone']=$request->phone;
+
+        if(DB::table('users')->insert($data)){
+            return redirect()->back()->with('success','Data was inserted');
+        }
+        else{
+            return redirect()->back()->with('error','Data was not inserted');
+        }
     }
 }
