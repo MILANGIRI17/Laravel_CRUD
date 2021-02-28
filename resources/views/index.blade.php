@@ -18,15 +18,15 @@
                 <form action="" method="post">
                     @csrf
                     <div class="form-group">
-                        <lable for="name">Name</lable>
+                        <lable for="name">Name: <a style="color:red;" href="">{{$errors->first('name')}}</a></lable>
                         <input type="text" name="name" class="form-control" id="name">
                     </div>
                     <div class="form-group">
-                        <lable for="email">Email</lable>
+                        <lable for="email">Email: <a style="color:red;" href="">{{$errors->first('email')}}</a></lable>
                         <input type="text" name="email" class="form-control" id="email">
                     </div>
                     <div class="form-group">
-                        <lable for="phone">Phone</lable>
+                        <lable for="phone">Phone: <a style="color:red;" href="">{{$errors->first('phone')}}</a></lable>
                         <input type="text" name="phone" class="form-control" id="phone">
                     </div>
                     <div class="form-group">
