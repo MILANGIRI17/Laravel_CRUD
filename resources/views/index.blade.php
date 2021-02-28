@@ -13,8 +13,18 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Students Record</h1>
+
+                @if(Session('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>@endif
+
+                @if(Session('error'))
+                <div class="alert alert-success">
+                    {{session('error')}}
+                </div>@endif
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <form action="" method="post">
                     @csrf
                     <div class="form-group">
@@ -34,7 +44,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -42,21 +52,36 @@
                         <th>Name</th>
                         <th>E-Mail</th>
                         <th>Phone</th>
-                        <th>Phone</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                            <a href="" class="btn btn-success btn-sm">Update</a>
+                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
                     </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="{{url('bootstrap/js/jquery.js ')}}"></script>
+    <script src="{{url('bootstrap/js/bootstrap.js ')}}"></script>
+    <script>
+        $(document).ready(function(){
+           setTimeout(function(){
+               $('.alert').hide('slow');
+           },3000);
+        });
+    </script>
+
 </body>
 </html>
