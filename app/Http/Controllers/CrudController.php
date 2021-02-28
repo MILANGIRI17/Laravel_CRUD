@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class CrudController extends Controller
 {
     public function index(){
-        return view('index');
+        $usersData=DB::table('users')->get();
+        return view('index',compact('usersData'));
     }
 
     public function insert(Request $request){
