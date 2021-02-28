@@ -18,16 +18,16 @@
                 <form action="" method="post">
                     @csrf
                     <div class="form-group">
-                        <lable for="name">Name: <a style="color:red;" href="">{{$errors->first('name')}}</a></lable>
-                        <input type="text" name="name" class="form-control" id="name">
+                        <lable for="name">Name: <h5 style="color:red;">{{$errors->first('name')}}</h5></lable>
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name">
                     </div>
                     <div class="form-group">
-                        <lable for="email">Email: <a style="color:red;" href="">{{$errors->first('email')}}</a></lable>
-                        <input type="text" name="email" class="form-control" id="email">
+                        <lable for="email">Email: <h5 style="color:red;">{{$errors->first('email')}}</h5></lable>
+                        <input type="text" name="email" value="{{old('email')}}" class="form-control" id="email">
                     </div>
                     <div class="form-group">
-                        <lable for="phone">Phone: <a style="color:red;" href="">{{$errors->first('phone')}}</a></lable>
-                        <input type="text" name="phone" class="form-control" id="phone">
+                        <lable for="phone">Phone: <h5 style="color:red;">{{$errors->first('phone')}}</h5></lable>
+                        <input type="text" name="phone" value="{{old('phone')}}" class="form-control" id="phone">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">Add Record</button>
