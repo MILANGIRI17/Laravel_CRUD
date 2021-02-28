@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Students Record</h1>
+                <h1 style="background-color: #2aabd2 ">Students Record</h1>
 
                 @if(Session('success'))
                 <div class="alert alert-success">
@@ -58,18 +58,20 @@
                     <tbody>
                     @foreach($usersData as $key => $user)
                     <tr>
+
                         <td>{{++$key}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->phone}}</td>
                         <td>
-                            <a href="" class="btn btn-primary btn-sm">Update</a>
+                            <a href="{{route('edit').'/'.$user->id}}" class="btn btn-primary btn-sm">Update</a>
                             <a href="{{route('delete').'/'.$user->id}}" onclick="return confirm('Are You Sure to Delete ?')" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
+                {{$usersData->links()}}
             </div>
         </div>
     </div>
@@ -79,7 +81,7 @@
         $(document).ready(function(){
            setTimeout(function(){
                $('.alert').hide('slow');
-           },200);
+           },2000);
         });
     </script>
 
