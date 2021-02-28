@@ -56,18 +56,18 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    @foreach($usersData as $key => $user)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{++$key}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->phone}}</td>
                         <td>
                             <a href="" class="btn btn-success btn-sm">Update</a>
                             <a href="" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
-
+                    @endforeach
                     </tbody>
                 </table>
             </div>
