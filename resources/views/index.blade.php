@@ -44,6 +44,16 @@
                     </div>
                 </form>
             </div>
+            {{--Search--}}
+            <form action="">
+            <div class="col-md-7">
+                <input type="text" name="search" class="form-control">
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary">search</button>
+            </div>
+            </form>
+            {{--search--}}
             <div class="col-md-8">
                 <table class="table table-hover">
                     <thead>
