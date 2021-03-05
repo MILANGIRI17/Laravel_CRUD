@@ -7,10 +7,23 @@ use Illuminate\Validation\Rule;
 
 class CrudController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        if(!empty($request->search)){
+            $search=$request->search;
 
-        $usersData=DB::table('users')->orderBy('id','desc')->paginate(5);
-        return view('index',compact('usersData'));
+            $usersData=DB::table('users')->where('name','LIKE','%'.$search.'%')
+                ->orWhere('email','LIKE','%'.$search.'%')
+                ->orWhere('phone','LIKE','%'.$search.'%')
+                ->paginate(5);
+            if(empty($usersData->first())){
+                return redirect()->back()->with('error','Data Not Found');
+            }else{
+                return view('index',compact('usersData'));
+            }
+        }else{
+            $usersData=DB::table('users')->orderBy('id','desc')->paginate(5);
+            return view('index',compact('usersData'));
+        }
     }
 
     public function insert(Request $request){

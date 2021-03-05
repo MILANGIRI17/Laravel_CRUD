@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('bootstrap/css/bootstrap.css')}}">
-    <title>Document</title>
+    <title>Laravel Crud</title>
 </head>
 <body>
     <div class="container">
@@ -20,7 +20,7 @@
                 </div>@endif
 
                 @if(Session('error'))
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     {{session('error')}}
                 </div>@endif
             </div>
