@@ -16,7 +16,7 @@ class CrudController extends Controller
                 ->orWhere('phone','LIKE','%'.$search.'%')
                 ->paginate(5);
             if(empty($usersData->first())){
-                return redirect()->back()->with('error','Data Not Found');
+                return redirect()->route('index')->with('error','Data Not Found');
             }else{
                 return view('index',compact('usersData'));
             }
